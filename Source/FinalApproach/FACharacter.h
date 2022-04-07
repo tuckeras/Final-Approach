@@ -45,6 +45,10 @@ public:
 	UFUNCTION()
 	void StopJump();
 
+	UPROPERTY(VisibleAnywhere)
+	bool isJumping;
+
+
 	//Camera component
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* FACameraComponent;

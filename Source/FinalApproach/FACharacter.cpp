@@ -8,16 +8,6 @@ AFACharacter::AFACharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	/*
-	//Attach Camera component
-	FACameraComponent->SetupAttachment(CastChecked<USceneComponent, UCapsuleComponent>(GetCapsuleComponent()));
-
-	//Positioning of Camera
-	FACameraComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 50.0f + BaseEyeHeight));
-
-	//Enables control of camera rotation
-	FACameraComponent->bUsePawnControlRotation = true;
-	*/
 
 }
 
@@ -55,6 +45,7 @@ void AFACharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AFACharacter::StartJump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AFACharacter::StopJump);
 
+
 }
 
 //Move Forward Definition
@@ -73,9 +64,12 @@ void AFACharacter::MoveRight(float value) {
 
 void AFACharacter::StartJump() {
 	bPressedJump = true;
+	isJumping = true;
 }
 
 void AFACharacter::StopJump() {
 	bPressedJump = false;
+	isJumping = false;
 }
+
 
